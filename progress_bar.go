@@ -1,12 +1,8 @@
-package bar
+package main
 
 import (
 	"fmt"
-	//"os"
-	//"os/exec"
-	//"runtime"
 	"time"
-	"bar"
 )
 
 //Variables that are needed for creating the progress bar.
@@ -20,11 +16,14 @@ type Progress_bar struct {
 }
 
 func (bar *Progress_bar) Default_values(total int64) {
-	bar.current_iteration_index = 0
-	bar.percent = 0
-	bar.total = total
+	bar.current_iteration_index = 0	//Tells the program to start at iteration 0.
+	bar.percent = 0					//Tells the program to start at 0%.
+	bar.total = total				//Tells the program what the total amount of iterations is.
 }
 
+
+//This function is used to let the user chanfe the filling sign in the progressbar.
+//If none is selected, an █ will be used.
 func (bar *Progress_bar) Progressbar_sign_exists(progress_char string)  {
 	if progress_char == "" {
 		bar.fill_progressbar_char = "█"
@@ -33,10 +32,12 @@ func (bar *Progress_bar) Progressbar_sign_exists(progress_char string)  {
 	}
 }
 
+//This function count what the current percentage should be, depending what the current iteration index and total amont of iterations.
 func (bar *Progress_bar) Count_percent() int64 {
 	return int64(float32(bar.current_iteration_index) / float32(bar.total) * 100)
 }
 
+//This function is used for printing to the terminal.
 func (bar *Progress_bar) Print(current_iteration_index int64) {
 	bar.current_iteration_index = current_iteration_index
 	last_percent := bar.percent
@@ -50,20 +51,15 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 			bar.fill_counter++
 		}
 	}
-
-	//Code for clean the terminal after each print.
-	
-	//time.Sleep(500*time.Millisecond)
-
-	if(bar.percent != 100) {
-		fmt.Printf("\r Loading!...")
-	} else {
-		fmt.Printf("\r Finished!!!")
-	}
-
+	//Print the progress bar on the terminal.
 	fmt.Printf("\r╔══════════════════════════════════════════════════╗\n")
 	fmt.Printf("\r║%-50s║ %3d %% %4d / %d\n", bar.rate, bar.percent, bar.current_iteration_index, bar.total)
 	fmt.Printf("\r╚══════════════════════════════════════════════════╝\n")
+	if(bar.percent == 100) {
+		fmt.Println("Finished!!!")
+	}else {
+		fmt.Println("Loading!!!")
+	}
 	fmt.Println()
 
 }
@@ -75,8 +71,11 @@ func progressBar(nrOfLoops int64, progress_char string) {
 	bar.Progressbar_sign_exists(progress_char)
 
 	for i := 0; i <= int(bar.total); i++ {
-		time.Sleep(500*time.Millisecond)
+		time.Sleep(50*time.Millisecond)
+
+		//Code for clean the terminal after each print.
 		fmt.Print("\033[2J")
+
 		bar.Print(int64(i))
 		
 	}
