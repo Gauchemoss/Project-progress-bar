@@ -4,7 +4,7 @@ In this project i have made a simple progressbar for golang.
 
 ## Installation
 
-You have to implement the package manager [go get](github.com/Gauchemoss/Project-progress-bar) in your terminal window:
+You have to use the package manager [go get](github.com/Gauchemoss/Project-progress-bar) for installing the progress bar:
 
 ```bash
 go get github.com/Gauchemoss/Project-progress-bar
@@ -40,3 +40,30 @@ hello world
 hello world
 hello world
 ```
+
+## Functionalities
+
+You could change the filling sign with what ever you want. If you just writing "", the program will use █ as default. A few examples could be seen below:
+
+### Examples
+
+```go
+progressBar(nr_of_iterations, "")
+```
+#### Result
+```bash
+╔══════════════════════════════════════════════════╗
+║██████████████████████████████████████████████████║ 100 %    3 / 3
+╚══════════════════════════════════════════════════╝
+```
+
+```go
+progressBar(nr_of_iterations, "#")
+```
+#### Result
+```bash
+╔══════════════════════════════════════════════════╗
+║##################################################║ 100 %    3 / 3
+╚══════════════════════════════════════════════════╝
+```
+
