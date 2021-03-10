@@ -20,8 +20,8 @@ import (
 )
  
 func main() {
-  nr_of iterations := 3;
-	progressBar(nr_of_iterations, "*")
+   nr_of iterations := 3;
+   progressBar(nr_of_iterations, "*")
   
    for i := 0; i < nr_of_iterations; i++ {
        fmt.Println("hello world")
