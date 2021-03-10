@@ -43,14 +43,18 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 	last_percent := bar.percent
 	bar.percent = bar.Count_percent()
 
-	//check if the rate go out of frame.
-	if bar.fill_counter < 50 {
+	
+	
 		//filling the frame with characters.
 		for i := int64(0); i < bar.percent - last_percent; i += 2 {
-			bar.rate += bar.fill_progressbar_char
-			bar.fill_counter++
+
+			//check if the rate go out of frame.
+			if bar.fill_counter < 50 {
+				bar.rate += bar.fill_progressbar_char
+				bar.fill_counter++
+			}
 		}
-	}
+
 	//Print the progress bar on the terminal.
 	fmt.Printf("\r╔══════════════════════════════════════════════════╗\n")
 	fmt.Printf("\r║%-50s║ %3d %% %4d / %d\n", bar.rate, bar.percent, bar.current_iteration_index, bar.total)
@@ -64,10 +68,10 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 
 }
 
-func progressBar(nrOfLoops int64, progress_char string) {
+func progressBar(nrOfLoops int, progress_char string) {
 	var bar Progress_bar
 
-	bar.Default_values(nrOfLoops);
+	bar.Default_values(int64(nrOfLoops));
 	bar.Progressbar_sign_exists(progress_char)
 
 	for i := 0; i <= int(bar.total); i++ {
@@ -77,6 +81,6 @@ func progressBar(nrOfLoops int64, progress_char string) {
 		fmt.Print("\033[2J")
 
 		bar.Print(int64(i))
-		
 	}
+	time.Sleep(50*time.Millisecond)
 }
