@@ -1,4 +1,4 @@
-package Project-progress-bar
+package main
 
 import (
 	"fmt"
