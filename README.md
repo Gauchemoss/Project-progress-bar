@@ -7,7 +7,7 @@ In this project i have made a simple progressbar for golang.
 You have to use the package manager [go get](https://golang.org/cmd/go/) for installing the progress bar:
 
 ```bash
-go get github.com/Gauchemoss/Project-progress-bar
+go get github.com/Gauchemoss/Project-progress-bar/v1
 ```
 
 ## Example for using:
@@ -16,7 +16,7 @@ package main
  
 import (
     "fmt"
-    "github.com/Gauchemoss/Project-progress-bar"
+    "github.com/Gauchemoss/Project-progress-bar/v1"
 )
  
 func main() {
