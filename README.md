@@ -4,7 +4,7 @@ In this project i have made a simple progressbar for golang.
 
 ## Installation
 
-You have to use the package manager [go get](github.com/Gauchemoss/Project-progress-bar) for installing the progress bar:
+You have to use the package manager [go get](https://github.com/Gauchemoss/Project-progress-bar) for installing the progress bar:
 
 ```bash
 go get github.com/Gauchemoss/Project-progress-bar
