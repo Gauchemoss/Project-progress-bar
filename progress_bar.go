@@ -1,4 +1,4 @@
-package pb
+package project-progress-bar
 
 import (
 	"fmt"
