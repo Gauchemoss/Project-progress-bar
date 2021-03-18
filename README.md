@@ -48,7 +48,7 @@ You could change the filling sign with what ever you want. If you just writing "
 ### Examples
 
 ```go
-progressBar(nr_of_iterations, "")
+ProgressBar(nr_of_iterations, "")
 ```
 #### Result
 ```bash
@@ -58,7 +58,7 @@ progressBar(nr_of_iterations, "")
 ```
 
 ```go
-progressBar(nr_of_iterations, "#")
+ProgressBar(nr_of_iterations, "#")
 ```
 #### Result
 ```bash
