@@ -68,7 +68,7 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 
 }
 
-func progressBar(nrOfLoops int, progress_char string) {
+func ProgressBar(nrOfLoops int, progress_char string) {
 	var bar Progress_bar
 
 	bar.Default_values(int64(nrOfLoops));
