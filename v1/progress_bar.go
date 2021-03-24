@@ -69,18 +69,23 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 }
 
 func ProgressBar(nrOfLoops int, progress_char string) {
-	var bar Progress_bar
 
-	bar.Default_values(int64(nrOfLoops));
-	bar.Progressbar_sign_exists(progress_char)
+	if reflect.TypeOf(nrOfLoops) == int {
+		var bar Progress_bar
 
-	for i := 0; i <= int(bar.total); i++ {
+		bar.Default_values(int64(nrOfLoops));
+		bar.Progressbar_sign_exists(progress_char)
+
+		for i := 0; i <= int(bar.total); i++ {
+			time.Sleep(50*time.Millisecond)
+
+			//Code for clean the terminal after each print.
+			fmt.Print("\033[2J")
+
+			bar.Print(int64(i))
+		}
 		time.Sleep(50*time.Millisecond)
-
-		//Code for clean the terminal after each print.
-		fmt.Print("\033[2J")
-
-		bar.Print(int64(i))
+	} else {
+		fmt.Printf("Must be an int!!!")
 	}
-	time.Sleep(50*time.Millisecond)
 }
