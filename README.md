@@ -67,7 +67,7 @@ v1.ProgressBar(nr_of_iterations, "#")
 ║##################################################║ 100 %    3 / 3
 ╚══════════════════════════════════════════════════╝
 ```
-###OBS!!!
+### OBS!!!
 You must set nr_of_iterations to an iteration, or your program will crash. 
 Another thing is that you have to set nr_of_iterations to an positive. If you set it to a negative integer, the program will write out "Nr of loops must be positive!!!".
 
