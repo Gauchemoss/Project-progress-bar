@@ -42,7 +42,7 @@ hello world
 ```
 
 ## Functionalities
-
+# 1
 You could change the filling sign with what ever you want. If you just writing "", the program will use █ as default. A few examples could be seen below:
 
 ### Examples
@@ -67,7 +67,30 @@ v1.ProgressBar(nr_of_iterations, "#")
 ║##################################################║ 100 %    3 / 3
 ╚══════════════════════════════════════════════════╝
 ```
+
+# 2
+If you put in an value that is lesser or equal to 0 on nr_of_iterations, the program will write an error message to the terminal.
+
+###Examples
+
+```go
+nr_of_iterations := -3
+v1.ProgressBar(nr_of_iterations, "")
+```
+###Result
+```bash
+Nr of loops must be positive integer over zero!!!
+```
+
+```go
+nr_of_iterations := 0
+v1.ProgressBar(nr_of_iterations, "")
+```
+
+###Result
+```bash
+Nr of loops must be positive integer over zero!!!
+```
+
 ### OBS!!!
 You must set nr_of_iterations to an iteration, or your program will crash. 
-Another thing is that you have to set nr_of_iterations to an positive. If you set it to a negative integer, the program will write out "Nr of loops must be positive integer over zero!!!".
-
