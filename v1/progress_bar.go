@@ -70,8 +70,8 @@ func (bar *Progress_bar) Print(current_iteration_index int64) {
 
 func ProgressBar(nrOfLoops int, progress_char string) {
 	//This if-statement is used for telling the user to set an positive integer.
-	if (nrOfLoops < 0) {
-		fmt.Println("Nr of loops must be positive integer!!!")
+	if (nrOfLoops < 0 || nrOfLoops == 0) {
+		fmt.Println("Nr of loops must be positive integer over zero!!!")
 	} else {
 		var bar Progress_bar
 
